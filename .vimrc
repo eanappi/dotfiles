@@ -18,6 +18,7 @@ Plug 'Yggdroot/indentLine'
 Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
+Plug 'ervandew/supertab'
 call plug#end()
 
 colorscheme dracula
