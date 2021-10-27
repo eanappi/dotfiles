@@ -1,5 +1,6 @@
 set nocompatible
 set nu
+set rnu
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -25,3 +26,4 @@ let g:indentLine_char = '▏'
 let g:indentLine_enabled = 1
 let g:lexima_enable_basic_rules = 1
 
+noremap t, :tabe .<CR>
