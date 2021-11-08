@@ -7,7 +7,7 @@ set shiftwidth=2
 set expandtab
 set incsearch
 set hlsearch 
-set termwinsize=12x0
+set termwinsize=7x0
 set splitbelow 
  
 call plug#begin('~/.vim/plugged')
