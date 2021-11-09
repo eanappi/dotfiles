@@ -32,7 +32,7 @@ let g:indentLine_char = '▏'
 let g:indentLine_enabled = 1
 let g:lexima_enable_basic_rules = 1
 
-map <Leader> <Plug>(easymotion-s)
+map <Leader>s <Plug>(easymotion-s2)
 
 nmap = $
 nmap c ciw
