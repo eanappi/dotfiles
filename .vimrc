@@ -34,10 +34,10 @@ let g:lexima_enable_basic_rules = 1
 
 map <Leader> <Plug>(easymotion-s)
 
-noremap = $
-noremap c ciw
-noremap <leader>o :tabe %:p:h<CR>
-noremap <leader>w :w<CR>
-noremap <leader>q :q<CR>
-noremap <leader>c :Commentary<CR>
-noremap <leader>n :noh<CR>
+nmap = $
+nmap c ciw
+nmap <leader>o :tabe %:p:h<CR>
+nmap <leader>w :w<CR>
+nmap <leader>q :q<CR>
+nmap <leader>c :Commentary<CR>
+nmap <leader>n :noh<CR>
