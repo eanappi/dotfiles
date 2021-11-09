@@ -34,5 +34,7 @@ noremap <leader>o :tabe %:p:h<CR>
 noremap <leader>w :w<CR>
 noremap <leader>q :q<CR>
 noremap <leader>c :Commentary<CR>
+noremap <leader>n :noh<CR>
+noremap c ciw
 
 
