@@ -28,6 +28,9 @@ colorscheme dracula
 
 let mapleader = " "
 
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js'
+let g:closetag_shortcut = '>'
+
 let g:indentLine_char = '▏'
 let g:indentLine_enabled = 1
 let g:lexima_enable_basic_rules = 1
