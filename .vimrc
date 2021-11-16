@@ -9,8 +9,9 @@ set incsearch
 set hlsearch 
 set termwinsize=7x0
 set splitbelow 
-" set mouse=a
-" set ttymouse=xterm2
+set mouse=a
+set ttymouse=xterm2
+set clipboard=unnamedplus
  
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }	
@@ -40,3 +41,4 @@ nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
 nmap <leader>n :noh<CR>
+nmap <leader>y :silent .w !xsel -b<CR>
