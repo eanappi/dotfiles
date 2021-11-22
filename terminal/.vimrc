@@ -37,11 +37,14 @@ let g:lexima_enable_basic_rules = 1
 
 nmap <expr> <Leader>s '/' . nr2char(getchar()) . nr2char(getchar()) . '<CR>'
 
-nmap = $
 nmap c ci
-nmap <leader>o :tabe %:p:h<CR>
+nmap <s-k> 10k
+nmap <s-j> 10j
+nmap <leader>o :e %:p:h<CR>
+nmap <leader>b :ls<CR>:b
+nmap <leader>x :ls<CR>:bd
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
-nmap <leader>n :noh<CR>
-nmap <leader>y :silent .w !xsel -b<CR>
+vmap <leader>y :w !xclip
+
