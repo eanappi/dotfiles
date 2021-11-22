@@ -12,6 +12,7 @@ set splitbelow
 set mouse=a
 set ttymouse=xterm2
 set clipboard=unnamedplus
+set cmdheight=1
  
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }	
