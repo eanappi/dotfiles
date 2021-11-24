@@ -26,6 +26,7 @@ Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
 Plug 'ervandew/supertab'
+Plug 'leafOfTree/vim-imagine'
 call plug#end()
 
 colorscheme dracula
