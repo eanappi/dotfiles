@@ -49,10 +49,7 @@ nmap <silent> <leader>n :noh<CR>
 nmap c ci
 noremap k 10k
 noremap j 10j
-nmap <leader>o :e %:p:h<CR>
-nmap <leader>b :ls<CR>:b 
-nmap <leader>x :ls<CR>:bd 
-nmap bg :bn<CR>
+nmap <leader>o :tabe %:p:h<CR>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
