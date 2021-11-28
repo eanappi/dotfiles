@@ -14,12 +14,12 @@ set ttymouse=xterm2
 set clipboard=unnamedplus
 set guioptions+=a
 set cmdheight=1
+set laststatus=1
 set smartindent
 set nobackup
 set nowrap
 set smartcase
 set noswapfile
-
  
 call plug#begin('~/.vim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }	
