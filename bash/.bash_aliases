@@ -2,7 +2,8 @@
 alias docker_stop='sudo docker ps -q | xargs -I% sudo docker stop %'
 
 # File system
-alias ll='ls -lah'
+alias l='ls -1h'
+alias ll='ls -1ah'
 
 # Git
 alias ge='git clone'
