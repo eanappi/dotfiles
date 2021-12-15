@@ -62,14 +62,17 @@ let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
 
 let g:lexima_enable_basic_rules = 1
 
+set rtp+=~/.fzf
+let g:fzf_layout = { 'down': '~30%'}
+" let g:fzf_layout = { 'left': '~30%'}
+
 " Own mapping
 let mapleader = " "
 
 nmap <expr> <Leader>s '/' . nr2char(getchar()) . nr2char(getchar()) . '<CR>'
 nmap <silent> <leader>n :noh<CR>
 nmap c ci
-noremap K 10k
-noremap J 10j
+
 nmap <leader>o :tabe %:p:h<CR>
 nmap <leader>t :term<CR>
 nmap <leader>w :w<CR>
@@ -77,3 +80,4 @@ nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
 vmap <leader>c :Commentary<CR>
 
+nmap <F2> :call fzf#run(fzf#wrap({'source': 'find ' . expand('%:p:h') . '  -type f ! -path "*/node_modules/*"'}))<CR>
