@@ -1,6 +1,7 @@
 syntax on
 set title
 filetype indent on
+filetype plugin on
 set nocompatible
 set rnu
 set mouse=a
@@ -65,6 +66,8 @@ let g:lexima_enable_basic_rules = 1
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~30%'}
 " let g:fzf_layout = { 'left': '~30%'}
+
+" au Filetype markdown set cole=0
 
 " Own mapping
 let mapleader = " "
