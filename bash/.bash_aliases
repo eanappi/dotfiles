@@ -15,5 +15,5 @@ alias gp='git push'
 alias gl='git pull'
 
 # Vim
-alias v='nvim .'
+alias v='nvim'
 

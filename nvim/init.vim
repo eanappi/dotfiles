@@ -26,7 +26,7 @@ set nobackup
 set nowrap
 set smartcase
 set noswapfile
-set laststatus=2
+set laststatus=0
 
 call plug#begin(stdpath('data') . '/plugged')
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
