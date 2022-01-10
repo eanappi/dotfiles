@@ -72,9 +72,6 @@ let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-cssmodule
 " Own mapping
 let mapleader = " "
 
-"" Edit nvim config
-nmap <leader>ve :edit ~/.config/nvim/init.vim<CR>
-
 "" Mapping keys
 nmap <expr> <Leader>s '/' . nr2char(getchar()) . nr2char(getchar()) . '<CR>'
 nmap <silent> <leader>n :noh<CR>
@@ -82,10 +79,12 @@ nmap c ci
 nmap t :tabnext<CR>
 nmap T :tabprevious<CR>
 nmap <leader>o :tabe %:p:h<CR>
+nmap <leader>v :vs %:p:h<CR>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
 vmap <leader>c :Commentary<CR>
+
 
 "" Commands
 command Wrap :set wrap
