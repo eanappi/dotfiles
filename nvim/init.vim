@@ -16,7 +16,7 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 set incsearch
-" set nohlsearch 
+set nohlsearch 
 set splitbelow 
 set clipboard=unnamedplus
 set guioptions+=a
@@ -38,9 +38,10 @@ Plug 'tpope/vim-commentary'
 Plug 'cohama/lexima.vim'
 Plug 'alvan/vim-closetag'
 Plug 'mattn/emmet-vim'
-Plug 'ervandew/supertab'
+" Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Plugins config
@@ -48,8 +49,7 @@ let g:gruvbox_transparent_bg = 1
 let g:gruvbox_contrast_light = 'hard'
 let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_bold = 1
-" set background=dark    " Setting dark mode
-" set background=light   " Setting light mode
+set background=dark    " Setting mode dark / light
 
 colorscheme monokai
 
@@ -65,9 +65,9 @@ let g:lexima_enable_basic_rules = 1
 
 set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~30%'}
-" let g:fzf_layout = { 'left': '~30%'}
 
-" au Filetype markdown set cole=0
+"" COC
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-emmet', 'coc-html-css-support', 'coc-tailwindcss', 'coc-tsserver', 'coc-yaml']
 
 " Own mapping
 let mapleader = " "
@@ -75,16 +75,19 @@ let mapleader = " "
 "" Edit nvim config
 nmap <leader>ve :edit ~/.config/nvim/init.vim<CR>
 
+"" Mapping keys
 nmap <expr> <Leader>s '/' . nr2char(getchar()) . nr2char(getchar()) . '<CR>'
 nmap <silent> <leader>n :noh<CR>
 nmap c ci
 nmap t :tabnext<CR>
 nmap T :tabprevious<CR>
-
 nmap <leader>o :tabe %:p:h<CR>
 nmap <leader>w :w<CR>
 nmap <leader>q :q<CR>
 nmap <leader>c :Commentary<CR>
 vmap <leader>c :Commentary<CR>
 
-nmap <F2> :call fzf#run(fzf#wrap({'source': 'find ' . expand('%:p:h') . '  -type f ! -path "*/node_modules/*"'}))<CR><CR>
+"" Commands
+command Wrap :set wrap
+command Nowrap :set nowrap
+
