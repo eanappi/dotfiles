@@ -41,6 +41,7 @@ Plug 'mattn/emmet-vim'
 " Plug 'ervandew/supertab'
 Plug 'morhetz/gruvbox'
 Plug 'tanvirtin/monokai.nvim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -51,7 +52,7 @@ let g:gruvbox_contrast_dark = 'hard'
 let g:gruvbox_bold = 1
 set background=dark    " Setting mode dark / light
 
-colorscheme monokai
+colorscheme nord
 
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.php'
 let g:closetag_shortcut = '>'
@@ -67,7 +68,22 @@ set rtp+=~/.fzf
 let g:fzf_layout = { 'down': '~30%'}
 
 "" COC
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-emmet', 'coc-html-css-support', 'coc-tailwindcss', 'coc-tsserver', 'coc-yaml']
+let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-emmet', 'coc-html-css-support', 'coc-tailwindcss', 'coc-tsserver', 'coc-yaml', 'coc-rust-analyzer']
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " Own mapping
 let mapleader = " "
