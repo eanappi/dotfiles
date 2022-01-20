@@ -17,4 +17,4 @@ alias gl='git pull'
 
 # Vim
 alias v='nvim'
-
+alias cv='nvim ~/.config/nvim/init.vim'
