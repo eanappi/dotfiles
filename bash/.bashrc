@@ -125,3 +125,11 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore Library -g ""'
+
+xmodmap -e 'keycode  34 = grave dead_circumflex dead_acute dead_diaeresis bracketleft dead_abovering dead_diaeresis dead_abovering bracketleft braceleft'
+export EDITOR=$(which nvim)
+
+export PATH="/home/anappi/.local/bin:$PATH"
+export DENO_INSTALL="/home/anappi/.deno"
+export PATH="$DENO_INSTALL/bin:$PATH"
