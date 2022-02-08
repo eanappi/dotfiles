@@ -2,8 +2,8 @@
 All configuration files
 
 # Application used
-vim
-vscode
+- vim
+- vscode
 
 # Terminal
-bash_aliases
+- bash_aliases
