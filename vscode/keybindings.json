@@ -35,12 +35,12 @@
   },
   {
     "key": "ctrl+escape",
-    "command": "workbench.view.explorer",
-    "when": "!viewContainer.workbench.view.explorer.enabled",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "!view.workbench.explorer.fileView.visible"
   },
   {
     "key": "ctrl+escape",
     "command": "workbench.action.toggleSidebarVisibility",
-    "when": "viewContainer.workbench.view.explorer.enabled",
+    "when": "view.workbench.explorer.fileView.visible"
   },
 ]
