@@ -1,141 +1,115 @@
-syntax on
-set title
-filetype indent on
-filetype plugin on
-set nocompatible
-set rnu
-set nu
-set mouse=a
-set numberwidth=1
-set clipboard=unnamed
-set showcmd
-set ruler
+set nocompatible            " disable compatibility to old-time vi
+set showmatch               " show matching 
 set encoding=utf-8
-set showmatch
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set incsearch
-set nohlsearch 
-set splitbelow 
-set clipboard=unnamedplus
-set guioptions+=a
-set cmdheight=1
-" set autoindent
-set smartindent
-set nobackup
-set nowrap
-set smartcase
-set noswapfile
-set laststatus=0
-set conceallevel=0
+set ignorecase              " case insensitive 
+set mouse=v                 " middle-click paste with 
+set hlsearch                " highlight search 
+set incsearch               " incremental search
+set tabstop=2               " number of columns occupied by a tab 
+set softtabstop=2           " see multiple spaces as tabstops so <BS> does the right thing
+set expandtab               " converts tabs to white space
+set shiftwidth=2            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
+set rnu                  " add line numbers
+" set wildmode=longest,list   " get bash-like tab completions
+set cc=80                  " set an 80 column border for good coding style
+filetype plugin indent on   "allow auto-indenting depending on file type
+syntax on                   " syntax highlighting
+set mouse=a                 " enable mouse click
+set clipboard=unnamedplus   " using system clipboard
+filetype plugin on
+" set cursorline              " highlight current cursorline
+set ttyfast                 " Speed up scrolling in Vim
+" set spell                 " enable spell check (may need to download language package)
+set noswapfile            " disable creating swap file
+" set backupdir=~/.cache/vim " Directory to store backup files.
 
-call plug#begin(stdpath('data') . '/plugged')
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'Yggdroot/indentLine'
-Plug 'sheerun/vim-polyglot'
+call plug#begin()
 Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'tpope/vim-commentary'
-Plug 'cohama/lexima.vim'
-Plug 'alvan/vim-closetag'
+" Plug 'sainnhe/gruvbox-material'
+Plug 'sheerun/vim-polyglot'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
 Plug 'mattn/emmet-vim'
-" Plug 'ervandew/supertab'
-Plug 'morhetz/gruvbox'
-Plug 'tanvirtin/monokai.nvim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sbdchd/neoformat'
+Plug 'terrortylor/nvim-comment'
+Plug 'tpope/vim-surround'
+Plug 'windwp/nvim-autopairs'
 call plug#end()
 
-" Plugins config
-let g:gruvbox_transparent_bg = 1
-let g:gruvbox_contrast_light = 'hard'
-let g:gruvbox_contrast_dark = 'hard'
-let g:gruvbox_bold = 1
-set background=dark    " Setting mode dark / light
+" ----> Theme
+set background=dark
+colorscheme dracula
+" let g:gruvbox_material_background='medium'
+" colorscheme gruvbox-material
 
-colorscheme nord
+lua << EOF
+----> LSP
+local cmp = require'cmp'
 
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml,*.jsx,*.js,*.php'
-let g:closetag_shortcut = '>'
+cmp.setup({
+    window = {
+      -- completion = cmp.config.window.bordered(),
+      -- documentation = cmp.config.window.bordered(),
+    },
+    mapping = cmp.mapping.preset.insert({
+      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+      ['<C-f>'] = cmp.mapping.scroll_docs(4),
+      ['<C-Space>'] = cmp.mapping.complete(),
+      ['<C-e>'] = cmp.mapping.abort(),
+      ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+    }),
+    sources = cmp.config.sources({
+      { name = 'nvim_lsp' },
+    }, {
+      { name = 'buffer' },
+    })
+  })
 
-let g:indentLine_char = '▏'
-let g:indentLine_enabled = 1
-let g:indentLine_fileTypeExclude = ['text', 'sh', 'help', 'terminal']
-let g:indentLine_bufNameExclude = ['NERD_tree.*', 'term:.*']
+ -- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline('/', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = {
+      { name = 'buffer' }
+    }
+  })
 
-let g:lexima_enable_basic_rules = 1
+  -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+  cmp.setup.cmdline(':', {
+    mapping = cmp.mapping.preset.cmdline(),
+    sources = cmp.config.sources({
+      { name = 'path' }
+    }, {
+      { name = 'cmdline' }
+    })
+  })
 
-set rtp+=~/.fzf
-let g:fzf_layout = { 'down': '~30%'}
+  -- Setup lspconfig.
+  local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-"" COC
-let g:coc_global_extensions = ['coc-json', 'coc-html', 'coc-css', 'coc-cssmodules', 'coc-emmet', 'coc-html-css-support', 'coc-tailwindcss', 'coc-tsserver', 'coc-yaml', 'coc-rust-analyzer']
+  require'lspconfig'.html.setup {
+    capabilities = capabilities
+  }
+  require'lspconfig'.tsserver.setup {
+    capabilities = capabilities
+  }
+  require'lspconfig'.tailwindcss.setup{}
 
-" Own mapping
-let mapleader = " "
+----> Comments
+require'nvim_comment'.setup()
+require("nvim-autopairs").setup {}
+EOF
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+" ----> EMMET
+let g:user_emmet_mode='n'
+let g:user_emmet_leader_key=','
+let g:user_emmet_settings={'javascript':{'extends':'jsx'}}
 
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
-inoremap <silent><expr> <TAB>
-  \ pumvisible() ? "\<C-n>" :
-  \ <SID>check_back_space() ? "\<TAB>" :
-  \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-" Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Symbol renaming.
-nmap <leader>rn <Plug>(coc-rename)
-
-"" Mapping keys
-nmap <expr> <leader>s '/' . nr2char(getchar()) . nr2char(getchar()) . '<CR>'
-nmap <silent> <leader>n :noh<CR>
-nmap c ci
-nmap <leader>o :tabe %:p:h<CR>
-nmap <leader>v :vs %:p:h<CR>
-nmap <leader>w :w<CR>
-nmap <leader>q :q<CR>
-nmap <leader>c :Commentary<CR>
-vmap <leader>c :Commentary<CR>
-
-
-"" Commands
-command Wrap :set wrap
-command Nowrap :set nowrap
-
-"" Autoconfig
-au BufNewFile,BufRead *.md set conceallevel=0
+" ----> Prettier
+autocmd BufWritePre,TextChanged,InsertLeave *.js Neoformat
+autocmd BufWritePre,TextChanged,InsertLeave *.jsx Neoformat
