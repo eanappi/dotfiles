@@ -14,3 +14,7 @@ map('n', '<leader>q', '<cmd>quit<CR>', default_opts)
 map('n', '<leader>w', '<cmd>write<CR>', default_opts)
 map('n', '<leader>h', '<cmd>noh<CR>', default_opts)
 map('n', '<leader>f', '<cmd>Neoformat<CR>', default_opts)
+
+
+map('n', 'J', '10j', default_opts)
+map('n', 'K', '10k', default_opts)
