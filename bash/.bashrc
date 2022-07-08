@@ -88,9 +88,9 @@ fi
 #export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
 # some more ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
+alias ll='ls -alFh'
+alias la='ls -Ah'
+alias l='ls -CFh'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -116,20 +116,13 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
-shopt -s autocd
-export PS1="-> "
-
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git --ignore node_modules --ignore Library -g ""'
+shopt -s autocd
 
-xmodmap -e 'keycode  34 = grave dead_circumflex dead_acute dead_diaeresis bracketleft dead_abovering dead_diaeresis dead_abovering bracketleft braceleft'
-export EDITOR=$(which nvim)
+#bind 'TAB:menu-complete'
+#bind 'set show-all-if-ambiguous on'
 
-export PATH="/home/anappi/.local/bin:$PATH"
-export DENO_INSTALL="/home/anappi/.deno"
-export PATH="$DENO_INSTALL/bin:$PATH"
+PS1="${PS1}\n → "
