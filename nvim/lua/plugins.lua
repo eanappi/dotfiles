@@ -7,6 +7,7 @@ end
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
   use {'dracula/vim', as = 'dracula'}
+  use 'morhetz/gruvbox'
   use 'windwp/nvim-autopairs'
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/cmp-nvim-lsp'

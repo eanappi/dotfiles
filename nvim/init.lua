@@ -6,7 +6,8 @@ require('keymaps')
 require('plugins')
 
 -- Configurations
-require('plugins/dracula')
+-- require('plugins/dracula')
+require('plugins/gruvbox')
 require('plugins/nvim-autopairs')
 require('plugins/nvim-cmp')
 require('plugins/surround')
