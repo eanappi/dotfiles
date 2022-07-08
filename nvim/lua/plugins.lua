@@ -18,6 +18,7 @@ return require('packer').startup(function()
   use 'sheerun/vim-polyglot'
   use 'sbdchd/neoformat'
   use 'Yggdroot/indentLine'
+  use 'mattn/emmet-vim'
 
   if packer_bootstrap then
     require('packer').sync()
