@@ -21,3 +21,4 @@ opt.mouse = 'a'
 opt.ttyfast = true
 opt.swapfile = false
 opt.completeopt = { 'menu', 'menuone', 'noselect' }
+opt.clipboard = 'unnamedplus'

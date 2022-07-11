@@ -9,7 +9,7 @@ local fn = vim.fn
 g.mapleader = ' '
 
 -- Remapping
-map('n', '<leader>o', '<cmd>tabedit '..fn.expand('%:p:h')..'<CR>', default_opts)
+map('n', '<leader>o', '<cmd>tabedit %:p:h<CR>', default_opts)
 map('n', '<leader>q', '<cmd>quit<CR>', default_opts)
 map('n', '<leader>w', '<cmd>write<CR>', default_opts)
 map('n', '<leader>l', '<cmd>luafile %<CR>', default_opts)
