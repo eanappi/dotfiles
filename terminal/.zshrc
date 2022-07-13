@@ -110,8 +110,8 @@ export NVM_DIR="$HOME/.nvm"
 alias t='tree -L 1 --gitignore -a'
 alias tt='tree -L 2 --gitignore -a'
 alias c='nvim $HOME/.config/nvim/init.lua'
-alias u='updatedb -l 0 -e $PWD/node_modules -U . -o $(basename $PWD).plocate.db'
-alias l='locate -i -d $(basename $PWD).plocate.db'
+alias u='updatedb -l 0 -e $PWD/node_modules -U . -o ~/$(basename $PWD).plocate.db'
+alias l='locate -i -d ~/$(basename $PWD).plocate.db'
 alias v='nvim'
 
 git config --global alias.co checkout
