@@ -20,7 +20,7 @@ return require('packer').startup(function()
   use 'sbdchd/neoformat'
   use 'Yggdroot/indentLine'
   use 'mattn/emmet-vim'
-
+  use 'numToStr/Comment.nvim'
   if packer_bootstrap then
     require('packer').sync()
   end
