@@ -1,5 +1,1 @@
-require('Comment').setup({
-  opleader = {
-    line = 'c',
-  },
-})
+require('Comment').setup()
