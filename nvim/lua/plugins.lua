@@ -19,7 +19,6 @@ return require('packer').startup(function()
   use 'hrsh7th/vim-vsnip'
   use 'ur4ltz/surround.nvim'
   use 'sheerun/vim-polyglot'
-  use 'sbdchd/neoformat'
   use 'Yggdroot/indentLine'
   use 'mattn/emmet-vim'
   use 'numToStr/Comment.nvim'
