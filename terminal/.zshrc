@@ -107,10 +107,10 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
-alias t='tree -L 1 --gitignore -a'
-alias tt='tree -L 2 --gitignore -a'
-alias c='nvim $HOME/.config/nvim/init.lua'
-alias u='updatedb -l 0 -e $PWD/node_modules -U . -o ~/$(basename $PWD).plocate.db'
-alias l='locate -i -d ~/$(basename $PWD).plocate.db'
+alias t='tree -L 1 --gitignore'
+alias tt='tree -L 1 --gitignore -a'
+alias c='nvim -p $HOME/.config/nvim/* $HOME/.zshrc'
 alias v='nvim .'
+alias vi='nvim'
 alias gcn='git commit -m "$(date)"'
+alias n='nvim $HOME/me-notes/'
