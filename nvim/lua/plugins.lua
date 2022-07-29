@@ -28,6 +28,7 @@ return require('packer').startup(function()
       'kyazdani42/nvim-web-devicons' 
     }
   }
+  use 'kdheepak/lazygit.nvim'
   if packer_bootstrap then
     require('packer').sync()
   end
