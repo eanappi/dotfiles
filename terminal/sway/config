@@ -229,5 +229,13 @@ bindsym XF86AudioNext exec playerctl next
 bindsym XF86AudioPrev exec playerctl previous
 bindsym XF86Search exec bemenu-run
 
+input * {
+    xkb_layout "es"
+    xkb_variant "deadtilde"
+    # xkb_options "grp:win_space_toggle"
+}
+
+input * xkb_model "pc101"
+
 # Windows
 gaps inner 8
