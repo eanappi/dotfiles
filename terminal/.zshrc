@@ -107,11 +107,19 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Aliases
+## Terminal
 alias t='tree -L 1 --gitignore'
 alias tt='tree -L 1 --gitignore -a'
 alias c='nvim -p $HOME/.config/nvim/* $HOME/.zshrc'
+
+## NeoVim
 alias v='nvim .'
 alias vi='nvim'
-alias gcn='git commit -m "$(date)"'
 alias n='nvim $HOME/me-notes/'
+
+## Git
+alias gcn='git commit -m "$(date)"'
 alias lg='lazygit'
+
+## Kitty
+alias icat="kitty +kitten icat"
