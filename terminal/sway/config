@@ -24,7 +24,8 @@ set $menu dmenu_path | dmenu | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+# output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg /home/eanappi/Pictures/willian-justen-de-vasconcellos-T_Qe4QlMIvQ-unsplash.jpg fill
 #
 # Example configuration:
 #
@@ -206,7 +207,9 @@ bar {
 
     # When the status_command prints a new line to stdout, swaybar updates.
     # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+    status_command while \
+        echo $(cat /sys/class/power_supply/BAT1/capacity)% \
+        $(date +'%Y-%m-%d %I:%M:%S %p'); do sleep 1; done
 
     colors {
         statusline #ffffff
