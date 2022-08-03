@@ -115,7 +115,7 @@ alias c='nvim -p $HOME/.config/nvim/* $HOME/.zshrc'
 ## NeoVim
 alias v='nvim .'
 alias vi='nvim'
-alias n='nvim $HOME/me-notes/'
+alias n='nvim -p $HOME/me-notes/'
 
 ## Git
 alias gcn='git commit -m "$(date)"'
