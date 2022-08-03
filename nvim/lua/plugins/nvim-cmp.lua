@@ -58,6 +58,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 require'lspconfig'.html.setup {
   capabilities = capabilities,
+  filetypes = { 'html', 'typescriptreact', 'javascriptreact' }
 }
 
 --Enable (broadcasting) snippet capability for completion
@@ -69,3 +70,5 @@ require'lspconfig'.cssls.setup {
 }
 
 require'lspconfig'.tailwindcss.setup{}
+
+require'lspconfig'.emmet_ls.setup{}
