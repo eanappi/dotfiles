@@ -10,7 +10,7 @@ g.mapleader = ' '
 
 -- Remapping
 -- map('n', '<leader>o', '<cmd>tabedit %:p:h<CR>', default_opts)
-map('n', '<leader>o', '<cmd>NvimTreeFindFileToggle<CR>', default_opts)
+map('n', '<leader>e', '<cmd>NvimTreeFindFileToggle<CR>', default_opts)
 map('n', '<leader>f', '<cmd>NvimTreeFindFileToggle<CR>', default_opts)
 map('n', '<leader>q', '<cmd>quit<CR>', default_opts)
 map('n', '<leader>w', '<cmd>write<CR>', default_opts)
